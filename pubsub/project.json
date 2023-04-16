@@ -1,0 +1,41 @@
+{
+  "name": "pubsub",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "pubsub/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/pubsub",
+        "tsConfig": "pubsub/tsconfig.lib.json",
+        "packageJson": "pubsub/package.json",
+        "main": "pubsub/src/index.ts",
+        "assets": ["pubsub/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["pubsub/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "pubsub/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}
