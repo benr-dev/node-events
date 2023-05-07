@@ -5,15 +5,11 @@ interface EventData {
   someData: string;
 }
 
-export const eventWithComplexData = () => {
+const startedEventHandler = (data: EventData) => {
+  console.log(`started complex: ${data.id}=${data.someData}`);
+  console.log(`finised complex: ${data.id}=${data.someData}`);
+};
 
-    const emitter = new EventEmitter();
-    
-    const startedEventHandler = (data: EventData) => {
-      console.log(`started with ${data.id}:${data.someData}`);
-    };
-    
-    emitter.on('start', startedEventHandler);
-    
-    emitter.emit('start', {id: 1, someData: 'custom data'});
+export const registerEventWithComplexData = (emitter: EventEmitter) => {
+    emitter.on('startComplex', startedEventHandler);
 };

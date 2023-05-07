@@ -1,8 +1,16 @@
-import { eventExample } from './lib/basicEvents';
-import { eventWithComplexData } from './lib/eventWithComplexData';
+import { EventEmitter } from 'stream';
+import { registerEventSimple } from './lib/basicEvents';
+import { registerEventWithComplexData } from './lib/eventWithComplexData';
+import { registerEventWithLongRunTime } from './lib/eventWithLongRunTime';
 
-export {eventExample} from './lib/basicEvents';
-export {eventWithComplexData} from './lib/eventWithComplexData';
+export {registerEventSimple as eventExample} from './lib/basicEvents';
+export {registerEventWithComplexData as eventWithComplexData} from './lib/eventWithComplexData';
 
-eventExample();
-eventWithComplexData();
+const emitter = new EventEmitter();
+registerEventSimple(emitter);
+registerEventWithComplexData(emitter);
+registerEventWithLongRunTime(emitter);
+
+emitter.emit('startLongRunning', 'longRunning');
+emitter.emit('start', 'basic');
+emitter.emit('startComplex', {id: 1, someData: 'complex'});

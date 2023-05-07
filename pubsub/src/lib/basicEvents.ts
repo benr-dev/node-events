@@ -1,14 +1,10 @@
 import { EventEmitter } from 'events';
 
-export const eventExample = () => {
+const startedEventHandler = (data: string) => {
+    console.log(`started basic:${data}`);
+    console.log(`finshed basic:${data}`);
+};
 
-    const emitter = new EventEmitter();
-    
-    const startedEventHandler = (data: string) => {
-      console.log(`started with ${data}`);
-    };
-    
+export const registerEventSimple = (emitter: EventEmitter) => {
     emitter.on('start', startedEventHandler);
-    
-    emitter.emit('start', 'custom data');
 };
