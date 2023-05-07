@@ -3,14 +3,22 @@
     "default": {
       "runner": "nx/tasks-runners/default",
       "options": {
-        "cacheableOperations": []
+        "cacheableOperations": [
+          "build",
+          "test"
+        ]
       }
     }
   },
   "defaultBase": "master",
   "targetDefaults": {
     "test": {
+      "dependsOn": ["build","^build"],
       "inputs": ["default", "^default", "{workspaceRoot}/jest.preset.js"]
+    },
+    "start": {
+      "dependsOn": ["build","^build"],
+      "inputs": ["default", "^default"]
     },
     "lint": {
       "inputs": [
