@@ -5,7 +5,7 @@ Experiments with node-events
 - npm init
 - npm install -D nx
 - npx nx init
-- npx nx g @nrwl/node:library pubsub --buildable
+- npx nx g @nrwl/node:library events --buildable
 - (add node_modules dist to .gitignore)
-- npx nx build pubsub
-- npx nx test pubsub
+- npx nx build events
+- npx nx test events

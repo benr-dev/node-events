@@ -1,32 +1,32 @@
 {
-  "name": "pubsub",
+  "name": "events",
   "$schema": "../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "pubsub/src",
+  "sourceRoot": "events/src",
   "projectType": "library",
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/pubsub",
-        "tsConfig": "pubsub/tsconfig.lib.json",
-        "packageJson": "pubsub/package.json",
-        "main": "pubsub/src/index.ts",
-        "assets": ["pubsub/*.md"]
+        "outputPath": "dist/events",
+        "tsConfig": "events/tsconfig.lib.json",
+        "packageJson": "events/package.json",
+        "main": "events/src/index.ts",
+        "assets": ["events/*.md"]
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["pubsub/**/*.ts"]
+        "lintFilePatterns": ["events/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "pubsub/jest.config.ts",
+        "jestConfig": "events/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
