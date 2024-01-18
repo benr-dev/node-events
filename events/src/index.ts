@@ -11,6 +11,6 @@ registerEventSimple(emitter);
 registerEventWithComplexData(emitter);
 registerEventWithLongRunTime(emitter);
 
-emitter.emit('startLongRunning', 'longRunning');
-emitter.emit('start', 'basic');
+emitter.emit('startLongRunning', 'some data for longRunning event');
+emitter.emit('start', 'some data for basic event');
 emitter.emit('startComplex', {id: 1, someData: 'complex'});
